@@ -1,0 +1,63 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Sign in";
+}
+
+<div class="container">
+    <main>
+        <header>
+            <div>
+                <div class="container d-flex justify-content-between align-items-center">
+                    <div class="d-flex gap-3 fs-5 align-items-center">
+                        <a asp-page="/Index">
+                            <i class="fa-solid fa-house text-primary"></i>
+                            <span>REALState</span>
+                        </a>
+                    </div>
+                    <div class="signup-btn">
+                        <button class="btn btn-primary rounded-pill text-light ps-4 pe-4" onclick="window.location.href='/register'">Sign up</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="content d-flex align-items-center pt-5">
+                <div class="col-4">
+                    <div class="login-form">
+                        <div class="d-flex flex-column gap-4">
+                            <span class="fs-4">Login To Continue</span>
+                            <p>Log in with your data that you entered during your registration</p>
+                            <form method="POST">
+                                <div class="d-flex flex-column gap-4">
+                                    <div class="d-flex gap-2 flex-column">
+                                        <label for="email">Enter your email address</label>
+                                        <input asp-for="email" type="email" class="form-control p-2" placeholder="yourmail@gmail.com">
+                                        <span asp-validation-for="email" class="text-danger"></span>
+                                    </div>
+                                    <div class="d-flex gap-2 flex-column">
+                                        <label for="password">Enter your password</label>
+                                        <input asp-for="password" type="password" class="form-control p-2" placeholder="Password">
+                                        <span asp-validation-for="password" class="text-danger"></span>
+                                    </div>
+                                    <span class="text-danger" style="font-weight: 400 !important;">@Model.errorMsg</span>
+                                    <input type="submit" class="bg-primary form-control text-light fs-6 p-2" value="Sign in">
+                                    <hr/>
+                                    <div class="text-end f-pass">
+                                        <span>Forgot Password?</span>
+                                        <a href="#">Click here!</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <img src="./images/login_img.png" alt="image" width="700" height="700" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
